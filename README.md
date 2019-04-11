@@ -91,7 +91,7 @@ True
 False
 ```
 
-5. To work with the MAC address's octets, access its `octets` property.  It is a `list` containing one `Octet` object for each of the address's six octets.
+5. To work with the MAC address's octets, access its `octets` property.  It contains one `Octet` object for each of the address's six octets.
 
 ```python
 >>> print(mac.octets)
