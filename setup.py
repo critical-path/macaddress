@@ -24,7 +24,7 @@ setup(
         "test": [
             "coveralls",
             "flake8",
-            "pytest",
+            "pytest>=3.6",
             "pytest-cov"
         ]
     }
