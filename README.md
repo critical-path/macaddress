@@ -131,24 +131,12 @@ To view the binary equivalent of the MAC address, access its `binary` and `rever
 000001011000110101000011110010110010011110101111
 ```
 
-To return the MAC address's two "fragments," call the `to_fragments` method.  For an EUI, this means the 24- or 36-bit OUI as the first fragment and the remaining device- or object-specific bits as the second fragment.  For an ELI, this means the 24- or 36-bit CID as the first fragment and the remaining device- or object-specific bits as the second fragment.
+To return the MAC address's two "fragments," call the `to_fragments` method.  For an EUI, this means the 24-bit OUI as the first fragment and the remaining interface-specific bits as the second fragment.  For an ELI, this means the 24-bit CID as the first fragment and the remaining interface-specific bits as the second fragment.
 
 ```python
->>> fragments_without_keyword_argument = mac.to_fragments()
->>> print(fragments_without_keyword_argument)
+>>> fragments = mac.to_fragments()
+>>> print(fragments)
 ('a0b1c2', 'd3e4f5')
-```
-
-```python
->>> fragments_with_24_bits = mac.to_fragments(bits=24)
->>> print(fragments_with_24_bits)
-('a0b1c2', 'd3e4f5')
-```
-
-```python
->>> fragments_with_36_bits = mac.to_fragments(bits=36)
->>> print(fragments_with_36_bits)
-('a0b1c2d3e', '4f5')
 ```
 
 To return the MAC address in different notations, call the `to_plain_notation`, `to_hyphen_notation`, `to_colon_notation`, and `to_dot_notation` methods.
