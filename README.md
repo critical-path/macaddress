@@ -67,8 +67,14 @@ sudo pip install .
 ```python
 >>> print(mac.is_broadcast)
 False
+```
+
+```python
 >>> print(mac.is_multicast)
 False
+```
+
+```python
 >>> print(mac.is_unicast)
 True
 ```
@@ -78,20 +84,19 @@ True
 ```python
 >>> print(mac.is_uaa)
 True
+```
+
+```python
 >>> print(mac.is_laa)
 False
 ```
 
-5. To work with the MAC address's octets, access its `octets` property.  It is a `list` containing one `Octet` object for each of the address's six octets.
+5. To work with the MAC address's octets, access its `octets` property.  It contains one `Octet` object for each of the address's six octets.
 
 ```python
->>> len(mac.octets)
-6
 >>> print(mac.octets)
 [Octet('a0'), Octet('b1'), Octet('c2'), Octet('d3'), Octet('e4'), Octet('f5')]
 ```
-
-Since the first octet plays an important role in evaluating a MAC address, it has its own property, `first_octet`.  `MediaAccessControlAddress` and its superclass `ExtendedIdentifier48` use this property extensively.
 
 6. To determine whether the MAC address is an extended unique identifier (EUI), an extended local identifier (ELI), or unknown, access its `type` property.
 
@@ -100,24 +105,26 @@ Since the first octet plays an important role in evaluating a MAC address, it ha
 unique
 ```
 
-The last two binary digits of an EUI are `00`, while the last four binary digits of an ELI are `1010`.
-
 7. To determine whether the MAC address has an organizationally-unique identifier (OUI) or a company ID, access its `has_oui` and `has_cid` properties.
 
 ```python
 >>> print(mac.has_oui)
 True
+```
+
+```python
 >>> print(mac.has_cid)
 False
 ```
-
-This property is related to the `type` property, as EUIs have 24- or 36-bit OUIs and ELIs have 24- or 36-bit CIDs.
 
 8. To view the binary equivalent of the MAC address, access its `binary` and `reverse_binary` properties. With `binary`, the most-significant digit of each octet appears first.  With `reverse_binary`, the least-significant digit of each octet appears first.
 
 ```python
 >>> print(mac.binary)
 101000001011000111000010110100111110010011110101
+```
+
+```python
 >>> print(mac.reverse_binary)
 000001011000110101000011110010110010011110101111
 ```
@@ -128,9 +135,15 @@ This property is related to the `type` property, as EUIs have 24- or 36-bit OUIs
 >>> fragments_without_keyword_argument = mac.to_fragments()
 >>> print(fragments_without_keyword_argument)
 ('a0b1c2', 'd3e4f5')
+```
+
+```python
 >>> fragments_with_24_bits = mac.to_fragments(bits=24)
 >>> print(fragments_with_24_bits)
 ('a0b1c2', 'd3e4f5')
+```
+
+```python
 >>> fragments_with_36_bits = mac.to_fragments(bits=36)
 >>> print(fragments_with_36_bits)
 ('a0b1c2d3e', '4f5')
@@ -142,12 +155,21 @@ This property is related to the `type` property, as EUIs have 24- or 36-bit OUIs
 >>> plain = mac.to_plain_notation()
 >>> print(plain)
 a0b1c2d3e4f5
+```
+
+```python
 >>> hyphen = mac.to_hyphen_notation()
 >>> print(hyphen)
 a0-b1-c2-d3-e4-f5
+```
+
+```python
 >>> colon = mac.to_colon_notation()
 >>> print(colon)
 a0:b1:c2:d3:e4:f5
+```
+
+```python
 >>> dot = mac.to_dot_notation()
 >>> print(dot)
 a0b1.c2d3.e4f5
