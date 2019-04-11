@@ -9,7 +9,6 @@ The macaddress library makes it easy to work with media access control (MAC) add
 
 macaddress requires Python 3.x and the pip package.  It also requires the following packages for testing.
 
-__Testing__:
 - coveralls
 - flake8
 - pytest
@@ -22,7 +21,7 @@ __Testing__:
 
 2. Using `sudo`, run `pip` with the `install` command and the `--editable` option.
 
-```
+```bash
 sudo pip install --editable .[test]
 ```
 
@@ -33,7 +32,7 @@ sudo pip install --editable .[test]
 
 2. Using `sudo`, run `pip` with the `install` command.
 
-```
+```bash
 sudo pip install .
 ```
 
