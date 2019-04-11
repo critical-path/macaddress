@@ -23,7 +23,7 @@ install:
 
 script:
   - flake8 --count --ignore E125 macaddress
-  - pytest --cov --cov-report=term-missing
+  - py.test --cov --cov-report=term-missing
 
 after_success:
   - coveralls
