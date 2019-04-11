@@ -107,7 +107,7 @@ To determine whether the MAC address is an extended unique identifier (EUI), an 
 unique
 ```
 
-To determine whether the MAC address has an organizationally-unique identifier (OUI) or a company ID, access its `has_oui` and `has_cid` properties.
+To determine whether the MAC address has an organizationally-unique identifier (OUI) or a company ID (CID), access its `has_oui` and `has_cid` properties.
 
 ```python
 >>> print(mac.has_oui)
