@@ -38,7 +38,7 @@ sudo pip install .
 ```
 
 
-## Using macaddress (basic)
+## Using macaddress
 
 Import `MediaAccessControlAddress`.
 
