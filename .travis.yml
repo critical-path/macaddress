@@ -1,0 +1,28 @@
+# repo branches
+
+branches:
+  only:
+  - master
+
+# job environment
+
+sudo: false
+
+language: python
+
+python:
+  - "3.5"
+  - "3.6"
+  - "3.7"
+
+# job phases
+
+install:
+  - pip install --editable .[test]
+
+script:
+  - flake8 --count --ignore E125 macaddress
+  - pytest --cov --cov-report=term-missing
+
+after_success:
+  - coveralls
