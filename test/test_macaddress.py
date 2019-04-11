@@ -25,9 +25,7 @@ def test_address_error(address):
     assert "Pass in 12 hexadecimal digits." == str(exception.value)
 
 
-
 def test_broadcast(capsys):
-
     # Instantiate MediaAccessControlAddress
 
     mac = MediaAccessControlAddress(BROADCAST)
@@ -58,7 +56,6 @@ def test_broadcast(capsys):
 
 
 def test_multicast(capsys):
-
     # Instantiate MediaAccessControlAddress
 
     mac = MediaAccessControlAddress(MULTICAST)
@@ -89,7 +86,6 @@ def test_multicast(capsys):
 
 
 def test_uaa_unicast(capsys):
-
     # Instantiate MediaAccessControlAddress
 
     mac = MediaAccessControlAddress(UAA_UNICAST)
@@ -120,7 +116,6 @@ def test_uaa_unicast(capsys):
 
 
 def test_laa_unicast(capsys):
-
     # Instantiate MediaAccessControlAddress
 
     mac = MediaAccessControlAddress(LAA_UNICAST)
