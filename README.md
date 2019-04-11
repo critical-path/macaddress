@@ -38,13 +38,13 @@ sudo pip install .
 
 ## Using macaddress (basic)
 
-1. Import `MediaAccessControlAddress`.
+Import `MediaAccessControlAddress`.
 
 ```python
 >>> from macaddress import MediaAccessControlAddress
 ```
 
-2. Instantiate `MediaAccessControlAddress` with a MAC address in plain, hyphen, colon, or dot notation.
+Instantiate `MediaAccessControlAddress` with a MAC address in plain, hyphen, colon, or dot notation.
 
 ```python
 >>> mac = MediaAccessControlAddress("a0b1c2d3e4f5")
@@ -62,7 +62,7 @@ sudo pip install .
 >>> mac = MediaAccessControlAddress("a0b1.c2d3.e4f5")
 ```
 
-3. To determine whether the MAC address is a broadcast, multicast (layer-two), or unicast, access its `is_broadcast`, `is_multicast`, and `is_unicast` properties.
+To determine whether the MAC address is a broadcast, multicast (layer-two), or unicast, access its `is_broadcast`, `is_multicast`, and `is_unicast` properties.
 
 ```python
 >>> print(mac.is_broadcast)
@@ -79,7 +79,7 @@ False
 True
 ```
 
-4. To determine whether the MAC address is a universally-administered address (UAA) or a locally-administered address (LAA), access its `is_uaa` and `is_laa` properties.
+To determine whether the MAC address is a universally-administered address (UAA) or a locally-administered address (LAA), access its `is_uaa` and `is_laa` properties.
 
 ```python
 >>> print(mac.is_uaa)
@@ -91,21 +91,21 @@ True
 False
 ```
 
-5. To work with the MAC address's octets, access its `octets` property.  It contains one `Octet` object for each of the address's six octets.
+To work with the MAC address's octets, access its `octets` property.  It contains one `Octet` object for each of the address's six octets.
 
 ```python
 >>> print(mac.octets)
 [Octet('a0'), Octet('b1'), Octet('c2'), Octet('d3'), Octet('e4'), Octet('f5')]
 ```
 
-6. To determine whether the MAC address is an extended unique identifier (EUI), an extended local identifier (ELI), or unknown, access its `type` property.
+To determine whether the MAC address is an extended unique identifier (EUI), an extended local identifier (ELI), or unknown, access its `type` property.
 
 ```python
 >>> print(mac.type)
 unique
 ```
 
-7. To determine whether the MAC address has an organizationally-unique identifier (OUI) or a company ID, access its `has_oui` and `has_cid` properties.
+To determine whether the MAC address has an organizationally-unique identifier (OUI) or a company ID, access its `has_oui` and `has_cid` properties.
 
 ```python
 >>> print(mac.has_oui)
@@ -117,7 +117,7 @@ True
 False
 ```
 
-8. To view the binary equivalent of the MAC address, access its `binary` and `reverse_binary` properties. With `binary`, the most-significant digit of each octet appears first.  With `reverse_binary`, the least-significant digit of each octet appears first.
+To view the binary equivalent of the MAC address, access its `binary` and `reverse_binary` properties. With `binary`, the most-significant digit of each octet appears first.  With `reverse_binary`, the least-significant digit of each octet appears first.
 
 ```python
 >>> print(mac.binary)
@@ -129,7 +129,7 @@ False
 000001011000110101000011110010110010011110101111
 ```
 
-9. To return the MAC address's two "fragments," call the `to_fragments` method.  For an EUI, this means the 24- or 36-bit OUI as the first fragment and the remaining device- or object-specific bits as the second fragment.  For an ELI, this means the 24- or 36-bit CID as the first fragment and the remaining device- or object-specific bits as the second fragment.
+To return the MAC address's two "fragments," call the `to_fragments` method.  For an EUI, this means the 24- or 36-bit OUI as the first fragment and the remaining device- or object-specific bits as the second fragment.  For an ELI, this means the 24- or 36-bit CID as the first fragment and the remaining device- or object-specific bits as the second fragment.
 
 ```python
 >>> fragments_without_keyword_argument = mac.to_fragments()
@@ -149,7 +149,7 @@ False
 ('a0b1c2d3e', '4f5')
 ```
 
-10. To return the MAC address in different notations, call the `to_plain_notation`, `to_hyphen_notation`, `to_colon_notation`, and `to_dot_notation` methods.
+To return the MAC address in different notations, call the `to_plain_notation`, `to_hyphen_notation`, `to_colon_notation`, and `to_dot_notation` methods.
 
 ```python
 >>> plain = mac.to_plain_notation()

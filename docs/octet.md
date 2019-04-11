@@ -4,20 +4,20 @@
 
 ## Using Octet
 
-1. Import `Octet`.
+Import `Octet`.
 
 ```python
 >>> from macaddress import Octet
 ```
 
-2. Instantiate `Octet`, passing in two hexadecimal digits.  `Octet` accepts both uppercase letters and lowercase letters.
+Instantiate `Octet`, passing in two hexadecimal digits.  `Octet` accepts both uppercase letters and lowercase letters.
 
 ```python
 >>> digits = "a0"
 >>> octet = Octet(digits)
 ```
 
-3. To view the binary equivalent of the hexadecimal digits, access the octet's `binary` and `reverse_binary` properties.  With `binary`, the most-significant digit appears first.  With `reverse_binary`, the least-significant digit appears first.
+To view the binary equivalent of the hexadecimal digits, access the octet's `binary` and `reverse_binary` properties.  With `binary`, the most-significant digit appears first.  With `reverse_binary`, the least-significant digit appears first.
 
 ```python
 >>> print(octet.binary)
@@ -29,7 +29,7 @@
 00000101
 ```
 
-4. To return a particular binary bit, call the `bit` method with an index number.  For example, to return the least-significant digit, pass in `-1`.
+To return a particular binary bit, call the `bit` method with an index number.  For example, to return the least-significant digit, pass in `-1`.
 
 ```python
 >>> least_significant_digit = octet.bit(-1)
