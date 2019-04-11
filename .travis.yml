@@ -13,8 +13,6 @@ language: python
 python:
   - "3.5"
   - "3.6"
-  - "3.7"
-  - "3.8"
 
 # job phases
 
@@ -23,7 +21,7 @@ install:
 
 script:
   - flake8 --count --ignore E125 macaddress
-  - py.test --cov --cov-report=term-missing
+  - pytest --cov --cov-report=term-missing
 
 after_success:
   - coveralls
