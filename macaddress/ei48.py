@@ -111,8 +111,8 @@ class ExtendedIdentifier48(object):
     IdentifierError
     """
 
-    def __init__(self, address):
-        self.original = address
+    def __init__(self, identifier):
+        self.original = identifier
 
         if not self.is_valid:
             raise IdentifierError("Pass in 12 hexadecimal digits.")
@@ -264,8 +264,7 @@ class ExtendedIdentifier48(object):
 
         pattern = compile("[0-9a-f]{2}")
         matches = pattern.findall(self.normalized)
-        hyphen = "-".join(matches)
-        return hyphen
+        return "-".join(matches)
 
     def to_colon_notation(self):
         """
@@ -275,8 +274,7 @@ class ExtendedIdentifier48(object):
 
         pattern = compile("[0-9a-f]{2}")
         matches = pattern.findall(self.normalized)
-        colon = ":".join(matches)
-        return colon
+        return ":".join(matches)
 
     def to_dot_notation(self):
         """
@@ -286,5 +284,4 @@ class ExtendedIdentifier48(object):
 
         pattern = compile("[0-9a-f]{4}")
         matches = pattern.findall(self.normalized)
-        dot = ".".join(matches)
-        return dot
+        return ".".join(matches)
