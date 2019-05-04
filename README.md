@@ -22,7 +22,7 @@ macaddress requires Python 3.x and the pip package.  It also requires the follow
 2. Using `sudo`, run `pip` with the `install` command and the `--editable` option.
 
 ```bash
-sudo pip install --editable .[test]
+$ sudo pip install --editable .[test]
 ```
 
 
@@ -33,7 +33,7 @@ sudo pip install --editable .[test]
 2. Using `sudo`, run `pip` with the `install` command.
 
 ```bash
-sudo pip install .
+$ sudo pip install .
 ```
 
 
@@ -170,13 +170,13 @@ a0b1.c2d3.e4f5
 1. Run `flake8` with the `--count` and `--ignore` options.
 
 ```bash
-flake8 --count --ignore E125 macaddress
+$ flake8 --count --ignore E125 macaddress
 ```
 
 2. Run `pytest` with the `--cov`, and `--cov-report` options.
 
 ```bash
-pytest --cov --cov-report=term-missing
+$ pytest --cov --cov-report=term-missing
 ```
 
 
