@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.com/critical-path/macaddress.svg?branch=master)](https://travis-ci.com/critical-path/macaddress) [![Coverage Status](https://coveralls.io/repos/github/critical-path/macaddress/badge.svg)](https://coveralls.io/github/critical-path/macaddress)
 
-## macaddress v0.1.0
+## macaddress v0.2.0
 
 The macaddress library makes it easy to work with media access control (MAC) addresses.
 
