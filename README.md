@@ -173,7 +173,7 @@ a0b1.c2d3.e4f5
 $ flake8 --count --ignore E125 macaddress
 ```
 
-2. Run `pytest` with the `--cov`, and `--cov-report` options.
+2. Run `pytest` with the `--cov` and `--cov-report` options.
 
 ```bash
 $ pytest --cov --cov-report=term-missing
