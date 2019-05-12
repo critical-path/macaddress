@@ -29,7 +29,7 @@ class ExtendedIdentifier48(object):
     extended unique identifiers (EUI) and extended local identifiers (ELI).
 
     The first 24 or 36 bits of an EUI is called an organizationally-
-    uniqe identifier (OUI), while the first 24 or 36 bits of an ELI is
+    unique identifier (OUI), while the first 24 or 36 bits of an ELI is
     called a company ID (CID).
 
     Visit the IEEE's website for more information on EUIs and ELIs.
@@ -47,7 +47,7 @@ class ExtendedIdentifier48(object):
         letters with lowercase letters and removing all hypens,
         colons, and dots.
 
-        For example, if the user passes in 'A0-B1-C2-D3-E4-F5`,
+        For example, if the user passes in `A0-B1-C2-D3-E4-F5`,
         then ExtendedIdentifier48 will convert it to `a0b1c2d3e4f5`.
 
     is_valid : bool
@@ -88,7 +88,7 @@ class ExtendedIdentifier48(object):
         in by the user.  *The most-significant digit of each
         octet appears first.*
 
-        For example, if the user passes in 'A0-B1-C2-D3-E4-F5`,
+        For example, if the user passes in `A0-B1-C2-D3-E4-F5`,
         then ExtendedIdentifier48 will convert it to
         `101000001011000111000010110100111110010011110101`.
 
@@ -97,7 +97,7 @@ class ExtendedIdentifier48(object):
         passed in by the user.  *The least-significant digit of
         each octet appears first.*
 
-        For example, if the user passes in 'A0-B1-C2-D3-E4-F5`,
+        For example, if the user passes in `A0-B1-C2-D3-E4-F5`,
         then ExtendedIdentifier48 will convert it to
         `000001011000110101000011110010110010011110101111`.
 
