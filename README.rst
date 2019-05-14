@@ -1,3 +1,9 @@
+.. image:: https://travis-ci.com/critical-path/macaddress.svg?branch=master
+    :target: https://travis-ci.com/critical-path/macaddress
+    
+.. image:: https://coveralls.io/repos/github/critical-path/macaddress/badge.svg?branch=master
+    :target: https://coveralls.io/github/critical-path/macaddress?branch=master
+
 Introduction
 ============
 
