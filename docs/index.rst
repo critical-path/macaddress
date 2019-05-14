@@ -3,7 +3,6 @@ Welcome to the docs for macaddress!
 
 .. toctree::
    :maxdepth: 1
-   :caption: Contents:
 
    introduction
    install
