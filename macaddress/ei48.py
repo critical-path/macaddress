@@ -35,7 +35,7 @@ class ExtendedIdentifier48(object):
     Visit the IEEE's website for more information on EUIs and ELIs.
 
     Helpful link:
-      - https://standards.ieee.org/products-services/regauth/tut/index.html
+    https://standards.ieee.org/products-services/regauth/tut/index.html
 
     Attributes
     ----------
@@ -48,7 +48,7 @@ class ExtendedIdentifier48(object):
         colons, and dots.
 
         For example, if the user passes in `A0-B1-C2-D3-E4-F5`,
-        then ExtendedIdentifier48 will convert it to `a0b1c2d3e4f5`.
+        then ExtendedIdentifier48 will return `a0b1c2d3e4f5`.
 
     is_valid : bool
         Whether the user passed in a valid hexadecimal identifier.
@@ -89,7 +89,7 @@ class ExtendedIdentifier48(object):
         octet appears first.*
 
         For example, if the user passes in `A0-B1-C2-D3-E4-F5`,
-        then ExtendedIdentifier48 will convert it to
+        then ExtendedIdentifier48 will return
         `101000001011000111000010110100111110010011110101`.
 
     reverse_binary : str
@@ -98,7 +98,7 @@ class ExtendedIdentifier48(object):
         each octet appears first.*
 
         For example, if the user passes in `A0-B1-C2-D3-E4-F5`,
-        then ExtendedIdentifier48 will convert it to
+        then ExtendedIdentifier48 will return
         `000001011000110101000011110010110010011110101111`.
 
     Parameters
@@ -231,10 +231,10 @@ class ExtendedIdentifier48(object):
 
         For example, if the user passes in `A0-B1-C2-D3-E4-F5` and
         calls this method with either `bits=24` or no keyword argument,
-        then ExtendedIdentifier48 returns `(a0b1c2, d3e4f5)`.
+        then ExtendedIdentifier48 will return `(a0b1c2, d3e4f5)`.
 
         If the user passes in `A0-B1-C2-D3-E4-F5` and calls this method
-        with `bits=36`, then ExtendedIdentifier48 returns
+        with `bits=36`, then ExtendedIdentifier48 will return
         `(a0b1c2d3e, 4f5)`.
 
         Parameters

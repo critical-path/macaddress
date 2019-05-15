@@ -38,7 +38,7 @@ class Octet(object):
         letters with lowercase letters.
 
         For example, if the user passes in `A0`, then Octet
-        will convert it to `a0`.
+        will return `a0`.
 
     is_valid : bool
         Whether the user passed in valid hexadecimal digits.
@@ -48,7 +48,7 @@ class Octet(object):
         in by the user.  *The most-significant digit appears first.*
 
         For example, if the user passes in `A0`, then Octet
-        will convert it to `10100000`.
+        will return `10100000`.
 
     reverse_binary : str
         The reverse-binary equivalent of the hexadecimal digits
@@ -56,7 +56,7 @@ class Octet(object):
         appears first.*
 
         For example, if the user passes in `A0`, then Octet
-        will convert it to `00000101`.
+        will return `00000101`.
 
     Parameters
     ----------
