@@ -54,7 +54,7 @@ To install it without test-related dependencies, run the following commands from
    [user@host ~]$ cd macaddress
    [user@host macaddress]$ sudo pip install .
 
-(If necessary, replace :code:`pip` with :code:`pip3` in any of the scenarios above.)
+(If necessary, replace :code:`pip` with :code:`pip3`.)
 
 
 Using macaddress
