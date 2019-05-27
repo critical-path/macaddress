@@ -18,7 +18,7 @@ setup(
         "License :: OSI Approved :: MIT License",
         "Programming Language :: Python :: 3"
     ],
-    keywords="python media-access-control mac mac-address",
+    keywords="python media-access-control mac mac-address networking",
     packages=find_packages(),
     extras_require={
         "test": [
