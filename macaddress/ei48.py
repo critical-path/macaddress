@@ -4,7 +4,7 @@ This module includes ExtendedIdentifier48 and IdentifierError.
 
 from functools import reduce
 
-from re import compile
+import re
 
 from macaddress.octet import Octet
 
@@ -129,10 +129,10 @@ class ExtendedIdentifier48(object):
         # It must contain 12 hexadecimal digits, and it may
         # be in plain, hyphen, colon, or dot notation.
 
-        plain = compile("^[0-9A-Fa-f]{12}$")
-        hyphen = compile("^([0-9A-Fa-f]{2}[-]{1}){5}[0-9A-Fa-f]{2}$")
-        colon = compile("^([0-9A-Fa-f]{2}[:]{1}){5}[0-9A-Fa-f]{2}$")
-        dot = compile("^([0-9A-Fa-f]{4}[.]{1}){2}[0-9A-Fa-f]{4}$")
+        plain = re.compile("^[0-9A-Fa-f]{12}$")
+        hyphen = re.compile("^([0-9A-Fa-f]{2}[-]{1}){5}[0-9A-Fa-f]{2}$")
+        colon = re.compile("^([0-9A-Fa-f]{2}[:]{1}){5}[0-9A-Fa-f]{2}$")
+        dot = re.compile("^([0-9A-Fa-f]{4}[.]{1}){2}[0-9A-Fa-f]{4}$")
 
         if plain.match(self.original):
             return True
@@ -157,7 +157,7 @@ class ExtendedIdentifier48(object):
         # Create one instance of Octet for each of the
         # hexadecimal identifier's six octets.
 
-        pattern = compile("[0-9a-f]{2}")
+        pattern = re.compile("[0-9a-f]{2}")
         matches = pattern.findall(self.normalized)
         return [Octet(match) for match in matches]
 
@@ -193,19 +193,13 @@ class ExtendedIdentifier48(object):
     def has_oui(self):
         # If the hexadecimal identifier is an EUI, then it has an OUI.
 
-        if self.type == "unique":
-            return True
-        else:
-            return False
+        return self.type == "unique"
 
     @property
     def has_cid(self):
         # If the hexadecimal identifier is an ELI, then it has a CID.
 
-        if self.type == "local":
-            return True
-        else:
-            return False
+        return self.type == "local"
 
     @property
     def binary(self):
@@ -262,7 +256,7 @@ class ExtendedIdentifier48(object):
         (for example, `a0-b1-c2-d3-e4-f5`).
         """
 
-        pattern = compile("[0-9a-f]{2}")
+        pattern = re.compile("[0-9a-f]{2}")
         matches = pattern.findall(self.normalized)
         return "-".join(matches)
 
@@ -272,7 +266,7 @@ class ExtendedIdentifier48(object):
         (for example, `a0:b1:c2:d3:e4:f5`).
         """
 
-        pattern = compile("[0-9a-f]{2}")
+        pattern = re.compile("[0-9a-f]{2}")
         matches = pattern.findall(self.normalized)
         return ":".join(matches)
 
@@ -282,6 +276,6 @@ class ExtendedIdentifier48(object):
         (for example, `a0b1.c2d3.e4f5`).
         """
 
-        pattern = compile("[0-9a-f]{4}")
+        pattern = re.compile("[0-9a-f]{4}")
         matches = pattern.findall(self.normalized)
         return ".".join(matches)

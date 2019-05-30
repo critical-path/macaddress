@@ -85,10 +85,7 @@ class MediaAccessControlAddress(ExtendedIdentifier48):
 
     @property
     def is_broadcast(self):
-        if self.normalized == "ffffffffffff":
-            return True
-        else:
-            return False
+        return self.normalized == "ffffffffffff"
 
     @property
     def is_multicast(self):
@@ -96,11 +93,7 @@ class MediaAccessControlAddress(ExtendedIdentifier48):
         # determines whether it is a multicast or a unicast.
 
         least_significant_bit = self.first_octet.bit(-1)
-
-        if least_significant_bit == "1":
-            return True
-        else:
-            return False
+        return least_significant_bit == "1"
 
     @property
     def is_unicast(self):
@@ -112,11 +105,7 @@ class MediaAccessControlAddress(ExtendedIdentifier48):
         # address determines whether it is a UAA or an LAA.
 
         second_least_significant_bit = self.first_octet.bit(-2)
-
-        if self.is_unicast and second_least_significant_bit == "0":
-            return True
-        else:
-            return False
+        return self.is_unicast and second_least_significant_bit == "0"
 
     @property
     def is_laa(self):
@@ -124,8 +113,4 @@ class MediaAccessControlAddress(ExtendedIdentifier48):
         # address determines whether it is a UAA or an LAA.
 
         second_least_significant_bit = self.first_octet.bit(-2)
-
-        if self.is_unicast and second_least_significant_bit == "1":
-            return True
-        else:
-            return False
+        return self.is_unicast and second_least_significant_bit == "1"

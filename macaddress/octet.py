@@ -4,7 +4,7 @@ This module includes Octet and OctetError.
 
 from functools import reduce
 
-from re import compile
+import re
 
 
 class OctetError(Exception):
@@ -84,7 +84,7 @@ class Octet(object):
     def is_valid(self):
         # Evaluate the hexadecimal digits.
 
-        pattern = compile("^[0-9A-Fa-f]{2}$")
+        pattern = re.compile("^[0-9A-Fa-f]{2}$")
 
         if pattern.match(self.original):
             return True
