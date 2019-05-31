@@ -147,10 +147,8 @@ class ExtendedIdentifier48(object):
 
     @property
     def normalized(self):
-        return self.original.lower()\
-                            .replace("-", "")\
-                            .replace(":", "")\
-                            .replace(".", "")
+        pattern = re.compile("[^0-9A-Fa-f]")
+        return pattern.sub("", self.original.lower())
 
     @property
     def octets(self):
