@@ -7,6 +7,9 @@ from functools import reduce
 import re
 
 
+DIGITS = re.compile("^[0-9A-Fa-f]{2}$")
+
+
 class OctetError(Exception):
     """
     Octet raises OctetError if instantiated with an invalid argument.
@@ -84,9 +87,7 @@ class Octet(object):
     def is_valid(self):
         # Evaluate the hexadecimal digits.
 
-        pattern = re.compile("^[0-9A-Fa-f]{2}$")
-
-        if pattern.match(self.original):
+        if DIGITS.match(self.original):
             return True
         else:
             return False

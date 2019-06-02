@@ -6,7 +6,7 @@ from setuptools import (
 
 setup(
     name="macaddress",
-    version="0.7.0",
+    version="0.8.0",
     description="The macaddress library makes it easy to work with media access control (MAC) addresses.",
     url="https://github.com/critical-path/macaddress",
     author="critical-path",

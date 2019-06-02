@@ -9,6 +9,15 @@ import re
 from macaddress.octet import Octet
 
 
+PLAIN = re.compile("^[0-9A-Fa-f]{12}$")
+HYPHEN = re.compile("^([0-9A-Fa-f]{2}[-]{1}){5}[0-9A-Fa-f]{2}$")
+COLON = re.compile("^([0-9A-Fa-f]{2}[:]{1}){5}[0-9A-Fa-f]{2}$")
+DOT = re.compile("^([0-9A-Fa-f]{4}[.]{1}){2}[0-9A-Fa-f]{4}$")
+NOT_DIGITS = re.compile("[^0-9A-Fa-f]")
+TWO_DIGITS = re.compile("[0-9a-f]{2}")
+FOUR_DIGITS = re.compile("[0-9a-f]{4}")
+
+
 class IdentifierError(Exception):
     """
     ExtendedIdentifier48 raises IdentifierError if instantiated
@@ -129,34 +138,27 @@ class ExtendedIdentifier48(object):
         # It must contain 12 hexadecimal digits, and it may
         # be in plain, hyphen, colon, or dot notation.
 
-        plain = re.compile("^[0-9A-Fa-f]{12}$")
-        hyphen = re.compile("^([0-9A-Fa-f]{2}[-]{1}){5}[0-9A-Fa-f]{2}$")
-        colon = re.compile("^([0-9A-Fa-f]{2}[:]{1}){5}[0-9A-Fa-f]{2}$")
-        dot = re.compile("^([0-9A-Fa-f]{4}[.]{1}){2}[0-9A-Fa-f]{4}$")
-
-        if plain.match(self.original):
+        if PLAIN.match(self.original):
             return True
-        elif hyphen.match(self.original):
+        elif HYPHEN.match(self.original):
             return True
-        elif colon.match(self.original):
+        elif COLON.match(self.original):
             return True
-        elif dot.match(self.original):
+        elif DOT.match(self.original):
             return True
         else:
             return False
 
     @property
     def normalized(self):
-        pattern = re.compile("[^0-9A-Fa-f]")
-        return pattern.sub("", self.original.lower())
+        return NOT_DIGITS.sub("", self.original.lower())
 
     @property
     def octets(self):
         # Create one instance of Octet for each of the
         # hexadecimal identifier's six octets.
 
-        pattern = re.compile("[0-9a-f]{2}")
-        matches = pattern.findall(self.normalized)
+        matches = TWO_DIGITS.findall(self.normalized)
         return [Octet(match) for match in matches]
 
     @property
@@ -254,8 +256,7 @@ class ExtendedIdentifier48(object):
         (for example, `a0-b1-c2-d3-e4-f5`).
         """
 
-        pattern = re.compile("[0-9a-f]{2}")
-        matches = pattern.findall(self.normalized)
+        matches = TWO_DIGITS.findall(self.normalized)
         return "-".join(matches)
 
     def to_colon_notation(self):
@@ -264,8 +265,7 @@ class ExtendedIdentifier48(object):
         (for example, `a0:b1:c2:d3:e4:f5`).
         """
 
-        pattern = re.compile("[0-9a-f]{2}")
-        matches = pattern.findall(self.normalized)
+        matches = TWO_DIGITS.findall(self.normalized)
         return ":".join(matches)
 
     def to_dot_notation(self):
@@ -274,6 +274,5 @@ class ExtendedIdentifier48(object):
         (for example, `a0b1.c2d3.e4f5`).
         """
 
-        pattern = re.compile("[0-9a-f]{4}")
-        matches = pattern.findall(self.normalized)
+        matches = FOUR_DIGITS.findall(self.normalized)
         return ".".join(matches)
