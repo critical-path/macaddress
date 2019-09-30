@@ -92,8 +92,7 @@ class MediaAccessControlAddress(ExtendedIdentifier48):
         # The least-significant bit in the first octet of a MAC address
         # determines whether it is a multicast or a unicast.
 
-        least_significant_bit = self.first_octet.bit(-1)
-        return least_significant_bit == "1"
+        return self.first_octet.binary[7] == "1"
 
     @property
     def is_unicast(self):
@@ -104,13 +103,11 @@ class MediaAccessControlAddress(ExtendedIdentifier48):
         # The second-least-significant bit in the first octet of a MAC
         # address determines whether it is a UAA or an LAA.
 
-        second_least_significant_bit = self.first_octet.bit(-2)
-        return self.is_unicast and second_least_significant_bit == "0"
+        return self.is_unicast and self.first_octet.binary[6] == "0"
 
     @property
     def is_laa(self):
         # The second-least-significant bit in the first octet of a MAC
         # address determines whether it is a UAA or an LAA.
 
-        second_least_significant_bit = self.first_octet.bit(-2)
-        return self.is_unicast and second_least_significant_bit == "1"
+        return self.is_unicast and self.first_octet.binary[6] == "1"
