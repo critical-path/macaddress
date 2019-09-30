@@ -110,18 +110,3 @@ class Octet(object):
         # Concatenate the binary digits in reverse order.
 
         return reduce(lambda x, y: x + y, reversed(self.binary))
-
-    def bit(self, index):
-        """
-        Returns a binary bit.
-
-        Parameters
-        ----------
-        index : int
-            The index of the binary bit to return.
-        """
-
-        try:
-            return self.binary[index]
-        except IndexError:
-            pass
