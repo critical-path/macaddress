@@ -173,18 +173,9 @@ class ExtendedIdentifier48(object):
         # The four least-signficant bits in the first octet of
         # an extended identifier determine whether it is an ELI.
 
-        least_significant_bit = self.first_octet.bit(-1)
-        second_least_significant_bit = self.first_octet.bit(-2)
-        third_least_significant_bit = self.first_octet.bit(-3)
-        fourth_least_significant_bit = self.first_octet.bit(-4)
-
-        if least_significant_bit == "0"\
-            and second_least_significant_bit == "0":
+        if self.first_octet.binary[6:8] == "00":
             return "unique"
-        elif least_significant_bit == "0"\
-            and second_least_significant_bit == "1"\
-            and third_least_significant_bit == "0"\
-            and fourth_least_significant_bit == "1":
+        elif self.first_octet.binary[4:8] == "1010":
             return "local"
         else:
             return "unknown"
