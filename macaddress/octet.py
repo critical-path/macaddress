@@ -46,6 +46,13 @@ class Octet(object):
     is_valid : bool
         Whether the user passed in valid hexadecimal digits.
 
+    decimal : int
+        The decimal equivalent of the hexadecimal digits passed
+        in by the user.
+
+        For example, if the user passes in `A0`, then Octet
+        will return `160`.
+
     binary : str
         The binary equivalent of the hexadecimal digits passed
         in by the user.  *The most-significant digit appears first.*
@@ -97,13 +104,15 @@ class Octet(object):
         return self.original.lower()
 
     @property
+    def decimal(self):
+        return int(self.normalized, base=16)
+
+    @property
     def binary(self):
-        # Convert from hexadecimal digits to decimal digits and
-        # then from decimal digits to binary digits.  Pad with
+        # Convert from decimal digits to binary digits, padding with
         # zeroes as necessary.
 
-        decimal = int(self.normalized, base=16)
-        return format(decimal, "b").zfill(8)
+        return format(self.decimal, "b").zfill(8)
 
     @property
     def reverse_binary(self):

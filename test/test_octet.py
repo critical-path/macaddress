@@ -23,10 +23,10 @@ def test_octet_error(digits):
 
 
 @mark.parametrize(
-    ("original", "normalized","binary", "reverse_binary"), 
+    ("original", "normalized", "decimal", "binary", "reverse_binary"), 
     OCTET
 )
-def test_octet(original, normalized, binary, reverse_binary, capsys):
+def test_octet(original, normalized, decimal, binary, reverse_binary, capsys):
     # Instantiate Octet
 
     octet = Octet(original)
@@ -36,6 +36,7 @@ def test_octet(original, normalized, binary, reverse_binary, capsys):
     assert octet.original == original
     assert octet.normalized == normalized
     assert octet.is_valid == True
+    assert octet.decimal == decimal
     assert octet.binary == binary
     assert octet.reverse_binary == reverse_binary
 
