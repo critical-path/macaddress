@@ -92,6 +92,13 @@ class ExtendedIdentifier48(object):
 
         If the identifier is an ELI, then it has a CID.
 
+    decimal : int
+        The decimal equivalent of the hexadecimal digits passed
+        in by the user.
+
+        For example, if the user passes in `A0-B1-C2-D3-E4-F5`,
+        then ExtendedIdentifier48 will return `176685338322165`.
+
     binary : str
         The binary equivalent of the hexadecimal identifier passed
         in by the user.  *The most-significant digit of each
@@ -191,6 +198,10 @@ class ExtendedIdentifier48(object):
         # If the hexadecimal identifier is an ELI, then it has a CID.
 
         return self.type == "local"
+
+    @property
+    def decimal(self):
+        return int(self.normalized, base=16)
 
     @property
     def binary(self):

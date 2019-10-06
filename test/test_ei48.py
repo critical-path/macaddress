@@ -30,6 +30,7 @@ def test_identifier_error(identifier):
     (
         "original", 
         "normalized",
+        "decimal",
         "binary", 
         "reverse_binary",
         "fragments_with_24_bit_oui",
@@ -44,6 +45,7 @@ def test_identifier_error(identifier):
 def test_eui(
     original, 
     normalized, 
+    decimal,
     binary, 
     reverse_binary,
     fragments_with_24_bit_oui,
@@ -68,6 +70,7 @@ def test_eui(
     assert ei48.type == "unique"
     assert ei48.has_oui == True
     assert ei48.has_cid == False
+    assert ei48.decimal == decimal
     assert ei48.binary == binary
     assert ei48.reverse_binary == reverse_binary
     assert ei48.to_fragments() == fragments_with_24_bit_oui
@@ -92,6 +95,7 @@ def test_eui(
     (
         "original", 
         "normalized",
+        "decimal",
         "binary", 
         "reverse_binary",
         "fragments_with_24_bit_oui",
@@ -106,6 +110,7 @@ def test_eui(
 def test_eli(
     original, 
     normalized, 
+    decimal,
     binary, 
     reverse_binary,
     fragments_with_24_bit_oui,
@@ -130,6 +135,7 @@ def test_eli(
     assert ei48.type == "local"
     assert ei48.has_oui == False
     assert ei48.has_cid == True
+    assert ei48.decimal == decimal
     assert ei48.binary == binary
     assert ei48.reverse_binary == reverse_binary
     assert ei48.to_fragments() == fragments_with_24_bit_oui
@@ -154,6 +160,7 @@ def test_eli(
     (
         "original", 
         "normalized",
+        "decimal",
         "binary", 
         "reverse_binary",
         "fragments_with_24_bit_oui",
@@ -167,7 +174,8 @@ def test_eli(
 )
 def test_null_eui(
     original, 
-    normalized, 
+    normalized,
+    decimal,
     binary, 
     reverse_binary,
     fragments_with_24_bit_oui,
@@ -192,6 +200,7 @@ def test_null_eui(
     assert ei48.type == "unknown"
     assert ei48.has_oui == False
     assert ei48.has_cid == False
+    assert ei48.decimal == decimal
     assert ei48.binary == binary
     assert ei48.reverse_binary == reverse_binary
     assert ei48.to_fragments() == fragments_with_24_bit_oui
