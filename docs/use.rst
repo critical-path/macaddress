@@ -82,6 +82,13 @@ To determine whether the MAC address has an organizationally-unique identifier (
    >>> print(mac.has_cid)
    False
 
+To view the decimal equivalent of the MAC address, access its :code:`decimal` property.
+
+.. code-block:: python
+
+   >>> print(mac.decimal)
+   176685338322165
+
 To view the binary equivalent of the MAC address, access its :code:`binary` and :code:`reverse_binary` properties.  With :code:`binary`, the most-significant digit of each octet appears first.  With :code:`reverse_binary`, the least-significant digit of each octet appears first.
 
 .. code-block:: python
