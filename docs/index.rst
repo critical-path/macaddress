@@ -8,6 +8,7 @@ Welcome to the docs for macaddress!
    introduction
    install
    use
+   patterns
    test
    modules
 
