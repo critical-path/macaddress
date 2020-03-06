@@ -229,7 +229,7 @@ Map-reduce a list of MAC addresses
 
 .. code-block:: python
 
-   # Import "functools.reduce`, `pprint.pprint`, and 
+   # Import `functools.reduce`, `pprint.pprint`, and 
    # `macaddress.MediaAccessControlAddress`.
 
    >>> from functools import reduce
