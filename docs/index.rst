@@ -10,6 +10,7 @@ Welcome to the docs for macaddress!
    use
    patterns
    test
+   other
    modules
 
 Indices

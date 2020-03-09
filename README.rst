@@ -396,3 +396,13 @@ To conduct testing, run the following commands from your shell.
 
    [user@host macaddress]$ flake8 --count --ignore E125 macaddress
    [user@host macaddress]$ pytest --cov --cov-report=term-missing
+
+
+Other languages
+===============
+
+The macaddress library is also available in the following languages:
+
+* `JavaScript <https://github.com/critical-path/macaddress-js>`__
+* `Ruby <https://github.com/critical-path/macaddress-rb>`__
+* `Rust <https://github.com/critical-path/macaddress-rs>`__
