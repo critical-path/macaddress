@@ -3,7 +3,7 @@ This module includes MediaAccessControlAddress and AddressError.
 """
 
 
-from macaddress.ei48 import (
+from .ei48 import (
     ExtendedIdentifier48,
     IdentifierError
 )
