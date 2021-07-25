@@ -6,7 +6,7 @@ The macaddress library makes it easy to work with media access control
 
 __author__ = "critical-path"
 
-__version__ = "0.10.0"
+__version__ = "0.10.1"
 
 __all__ = [
     "ExtendedIdentifier48",
@@ -18,17 +18,17 @@ __all__ = [
 ]
 
 
-from macaddress.ei48 import (
+from .ei48 import (
     ExtendedIdentifier48,
     IdentifierError
 )
 
-from macaddress.macaddress import (
+from .macaddress import (
     MediaAccessControlAddress,
     AddressError
 )
 
-from macaddress.octet import (
+from .octet import (
     Octet,
     OctetError
 )

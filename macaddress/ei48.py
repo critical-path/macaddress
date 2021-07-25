@@ -6,7 +6,7 @@ from functools import reduce
 
 import re
 
-from macaddress.octet import Octet
+from .octet import Octet
 
 
 PLAIN = re.compile("^[0-9A-Fa-f]{12}$")
