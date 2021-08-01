@@ -6,8 +6,6 @@ branches:
 
 # job environment
 
-sudo: false
-
 language: python
 
 python:
